@@ -12,6 +12,9 @@ const config: GatsbyConfig = {
     plugins: [
         `gatsby-plugin-postcss`,
         `gatsby-plugin-mdx`,
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-image`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
