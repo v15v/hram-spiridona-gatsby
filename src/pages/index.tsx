@@ -4,7 +4,7 @@ import EmblaCarousel from "@/components/organisms/carousel/carousel.tsx";
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
-        <div className={"container max-w-screen-xl"}>
+        <div className={"mx-auto max-w-screen-xl"}>
             <EmblaCarousel />
         </div>
     )
