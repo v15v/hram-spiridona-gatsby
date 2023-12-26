@@ -1,10 +1,12 @@
 import * as React from "react"
 import type {HeadFC, PageProps} from "gatsby"
-
+import EmblaCarousel from "@/components/organisms/carousel/carousel.tsx";
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
-        <h1>Home page</h1>
+        <div className={"container max-w-screen-xl"}>
+            <EmblaCarousel />
+        </div>
     )
 }
 
