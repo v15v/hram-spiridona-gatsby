@@ -7,7 +7,7 @@ import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
 
 const EmblaCarousel = () => {
-    const [emblaRef, emblaApi] = useEmblaCarousel({loop: false}, [Autoplay(
+    const [emblaRef, emblaApi] = useEmblaCarousel({loop: false, duration: 50}, [Autoplay(
         {
             delay: 4000,
             stopOnMouseEnter: true,
@@ -56,6 +56,9 @@ const EmblaCarousel = () => {
                                 quality={95}
                                 formats={["auto", "webp", "avif"]}
                                 alt={""} />
+                            <p>Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Cum, quaerat.</p>
+                            <p>Lorem ipsum dolor sit.</p>
                         </div>
                     })
                 }
