@@ -2,7 +2,7 @@ import React, {useCallback} from 'react'
 import {graphql, useStaticQuery} from "gatsby"
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import {DotButton, useDotButton} from './EmblaCarouselDotButton'
+import {DotButton, useDotButton} from './emblaCarouselDotButton'
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import JSONData from "../../../content/slider-quotes.json"
 
