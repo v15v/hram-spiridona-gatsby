@@ -4,12 +4,15 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import {DotButton, useDotButton} from './EmblaCarouselDotButton'
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
-
+import JSONData from "../../../content/slider-quotes.json"
 
 const EmblaCarousel = () => {
-    const [emblaRef, emblaApi] = useEmblaCarousel({loop: false, duration: 50}, [Autoplay(
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: true,
+        duration: 50
+    }, [Autoplay(
         {
-            delay: 4000,
+            delay: 3000,
             stopOnMouseEnter: true,
             stopOnInteraction: false
         }
@@ -23,6 +26,7 @@ const EmblaCarousel = () => {
             ) {
                 nodes {
                     base
+                    name
                     childImageSharp {
                         gatsbyImageData(width: 1280)
                     }
@@ -48,18 +52,23 @@ const EmblaCarousel = () => {
                 {
                     data.allFile.nodes.map((node) => {
                         const img = getImage(node.childImageSharp?.gatsbyImageData)
-                        return <div key={node.base}
-                                    className="flex-00100 min-w-0">
-                            <GatsbyImage
-                                image={img}
-                                loading="eager"
-                                quality={95}
-                                formats={["auto", "webp", "avif"]}
-                                alt={""} />
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Cum, quaerat.</p>
-                            <p>Lorem ipsum dolor sit.</p>
-                        </div>
+                        for (let slide of JSONData) {
+                            if (node.name === slide.name) {
+                                return <div key={node.base}
+                                            className="flex-00100 min-w-0">
+                                    <GatsbyImage
+                                        image={img}
+                                        loading="eager"
+                                        quality={95}
+                                        formats={["auto", "webp", "avif"]}
+                                        alt="" />
+                                    <div className={"absolute top-12 pl-12 w-6/12 text-white opacity-80"}>
+                                        <p className={"font-serif text-left text-5xl italic"}>{slide.data.quote}</p>
+                                        <p className={"font-serif text-right pt-2"}>{slide.data.signature}</p>
+                                    </div>
+                                </div>
+                            }
+                        }
                     })
                 }
             </div>
