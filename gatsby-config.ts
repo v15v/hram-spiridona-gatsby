@@ -11,10 +11,16 @@ const config: GatsbyConfig = {
     graphqlTypegen: true,
     plugins: [
         `gatsby-plugin-postcss`,
-        `gatsby-plugin-mdx`,
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                extensions: [`.mdx`, `.md`],
+            },
+        },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-image`,
+        `gatsby-transformer-remark`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
