@@ -1,0 +1,25 @@
+.markdown {
+  h1 {
+    font-size: 3em;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  li {
+    margin: .5em 0;
+    padding-left: .3em;
+    line-height: 1.6em
+  }
+
+  ol, ul {
+    padding-left: 1.3em;
+    padding-right: 1.5em
+  }
+
+  blockquote, dl, ol, p, ul {
+    margin: 0 0 1.5em
+  }
+}

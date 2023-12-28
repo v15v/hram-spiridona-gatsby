@@ -6,7 +6,7 @@ import {Separator} from "@/components/ui/separator"
 const Footer = () => {
     return (
         <div
-            className={"sm:h-32 p-4 sm:pt-6 md:pt-4 sm:pb-0 bg-black text-gray-400 opacity-80 sm:grid sm:grid-cols-12 sm:grid-rows-2"}>
+            className={"mx-1 sm:h-32 p-4 sm:pt-6 md:pt-4 sm:pb-0 bg-gray-900 text-gray-400 sm:grid sm:grid-cols-12 sm:grid-rows-2"}>
             <div
                 className={"sm:col-start-2 sm:col-end-9 sm:justify-self-start sm:self-center p-1 flex"}>
                 <div className={"w-11 flex self-center"}>

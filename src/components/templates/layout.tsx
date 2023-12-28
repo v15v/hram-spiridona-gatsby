@@ -1,6 +1,7 @@
 import React from "react"
-import {Navigation} from "@/components/organisms/navigation";
-import Footer from "@/components/organisms/footer";
+import {Navigation} from "@/components/organisms/navigation"
+import Footer from "@/components/organisms/footer"
+import "./layout.scss"
 
 const Layout = ({children}) => {
     return (
@@ -14,7 +15,6 @@ const Layout = ({children}) => {
                 {children}
             </div>
 
-            <div className={"h-screen"}></div>
             <Footer />
         </div>
     )

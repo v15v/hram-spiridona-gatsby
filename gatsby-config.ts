@@ -20,7 +20,7 @@ const config: GatsbyConfig = {
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-image`,
-        `gatsby-transformer-remark`,
+        `gatsby-plugin-sass`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
