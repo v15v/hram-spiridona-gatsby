@@ -52,7 +52,7 @@ const EmblaCarousel = () => {
                 {
                     data.allFile.nodes.map((node) => {
                         const img = getImage(node.childImageSharp?.gatsbyImageData)
-                        for (let slide of JSONData) {
+                        for (let slide of JSONData.slides) {
                             if (node.name === slide.name) {
                                 return <div key={node.base}
                                             className="flex-00100 min-w-0">
@@ -63,8 +63,8 @@ const EmblaCarousel = () => {
                                         formats={["auto", "webp", "avif"]}
                                         alt="" />
                                     <div className={"absolute top-12 pl-12 w-6/12 text-white opacity-80"}>
-                                        <p className={"font-serif text-left text-5xl italic"}>{slide.data.quote}</p>
-                                        <p className={"font-serif text-right pt-2"}>{slide.data.signature}</p>
+                                        <p className={"font-serif text-left text-5xl italic"}>{slide.quote}</p>
+                                        <p className={"font-serif text-right pt-2"}>{slide.signature}</p>
                                     </div>
                                 </div>
                             }
