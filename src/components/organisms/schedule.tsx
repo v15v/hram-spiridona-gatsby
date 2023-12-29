@@ -25,7 +25,7 @@ function Schedule() {
         "Четверг", "Пятница", "Суббота"]
 
     return (
-        <div className={"flex justify-center schedule"}>
+        <div className={"lg:flex lg:justify-center schedule"}>
             {
                 futureDays.slice(0, 3).map((day) => {
                     const targetDate = Date.parse(day.date)
