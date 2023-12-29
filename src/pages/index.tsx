@@ -4,6 +4,7 @@ import EmblaCarousel from "@/components/organisms/carousel/carousel.tsx"
 import Layout from "@/components/templates/layout"
 import About from "../content/about.mdx"
 import Contacts from "../content/contacts.mdx"
+// import Schedule from "../content/schedule.mdx"
 import {Separator} from "@/components/ui/separator";
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -19,10 +20,17 @@ const IndexPage: React.FC<PageProps> = () => {
                 </div>
 
                 <Separator />
+                {/*<div className={"p-5 mx-1"}>*/}
+                {/*    <Schedule />*/}
+                {/*</div>*/}
+
+                <Separator />
                 <div className={"p-5 mx-1"}>
                     <Contacts />
                 </div>
+
             </div>
+
         </Layout>
     )
 }

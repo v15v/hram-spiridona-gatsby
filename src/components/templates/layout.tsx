@@ -5,15 +5,15 @@ import "./layout.scss"
 
 const Layout = ({children}) => {
     return (
-        <div className={"mx-auto max-w-screen-xl"}>
+        <div className={"site-content mx-auto max-w-screen-xl font-serif"}>
             <div
                 className={"h-10 fixed bg-white max-w-screen-xl w-full z-50 px-0 mx-0"}>
                 <Navigation />
             </div>
 
-            <div className={"pt-10"}>
+            <main className={"pt-10"}>
                 {children}
-            </div>
+            </main>
 
             <Footer />
         </div>

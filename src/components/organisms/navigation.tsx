@@ -59,8 +59,9 @@ export function Navigation() {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Getting
-                        started</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>
+                        Основное меню
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
@@ -71,7 +72,7 @@ export function Navigation() {
                                         <Church />
                                         <div
                                             className="mb-2 mt-4 text-lg font-medium">
-                                            shadcn/ui
+                                            Главная
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
                                             Beautifully designed components
@@ -89,10 +90,9 @@ export function Navigation() {
                                     and Tailwind CSS.
                                 </ListItem>
                             </Link>
-                            <ListItem href="/docs/installation"
-                                      title="Installation">
-                                How to install dependencies and structure your
-                                app.
+                            <ListItem href="/schedule"
+                                      title="Расписание">
+                                Подробный список ближайших богослужений
                             </ListItem>
                             <ListItem href="/docs/primitives/typography"
                                       title="Typography">

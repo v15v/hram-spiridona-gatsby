@@ -62,9 +62,9 @@ const EmblaCarousel = () => {
                                         quality={95}
                                         formats={["auto", "webp", "avif"]}
                                         alt="" />
-                                    <div className={"absolute top-12 pl-12 w-6/12 text-white opacity-80"}>
-                                        <p className={"font-serif text-left text-5xl italic"}>{slide.quote}</p>
-                                        <p className={"font-serif text-right pt-2"}>{slide.signature}</p>
+                                    <div className={"absolute top-2 pl-2 w-8/12 sm:top-9 sm:pl-9 md:top-12 md:pl-12 md:w-6/12 text-white opacity-80"}>
+                                        <p className={"font-serif text-left text-xl sm:text-2xl md:text-3xl lg:text-5xl italic"}>{slide.quote}</p>
+                                        <p className={"font-serif text-right text-xs sm:text-base md:text-lg lg:text-xl pt-2"}>{slide.signature}</p>
                                     </div>
                                 </div>
                             }

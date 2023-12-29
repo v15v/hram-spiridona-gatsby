@@ -1,13 +1,30 @@
-.markdown {
-  h1 {
-    font-size: 3em;
-    text-align: center;
-  }
-  h2 {
-    font-size: 2em;
-    text-align: center;
-  }
+.site-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
+main {
+  flex: 1 0 auto;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  padding: 1em;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.markdown {
   li {
     margin: .5em 0;
     padding-left: .3em;
@@ -22,4 +39,25 @@
   blockquote, dl, ol, p, ul {
     margin: 0 0 1.5em
   }
+
+  .schedule {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* Small (sm) */
+@media (min-width: 640px) {
+}
+
+/* Medium (md) */
+@media (min-width: 768px) {
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) {
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
 }
