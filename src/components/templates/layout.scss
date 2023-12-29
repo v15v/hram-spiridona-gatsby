@@ -41,8 +41,10 @@ h3 {
   }
 
   .schedule {
-    display: flex;
-    flex-wrap: wrap;
+    p {
+      padding: 0;
+      margin: 0;
+    }
   }
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
-import Schedules from '../content/schedule.yaml'
-import Layout from "@/components/templates/layout"
+import Schedules from '../../content/schedule.yaml'
 import {
     Card,
     CardContent,
@@ -12,8 +11,13 @@ import {
 
 function Schedule() {
     const days = Schedules.schedules
-    let currentDate = new Date
+    let currentDate = new Date()
     currentDate.setHours(0, 0, 0, 0)
+    const futureDays = days.filter((item) => {
+        console.log("item:", Date.parse(item.date))
+        return Date.parse(item.date) >= currentDate
+    })
+    console.log("futureDays:", futureDays)
     const monthNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
         "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
     ]
@@ -21,10 +25,9 @@ function Schedule() {
         "Четверг", "Пятница", "Суббота"]
 
     return (
-        <Layout>
-            <h2>Расписание богослужений</h2>
-            <div className={"mb-10"}>
-                {days.map((day) => {
+        <div className={"flex justify-center schedule"}>
+            {
+                futureDays.slice(0, 3).map((day) => {
                     const targetDate = Date.parse(day.date)
                     if (targetDate >= currentDate) {
                         const dateObj = new Date(targetDate)
@@ -58,9 +61,9 @@ function Schedule() {
                             </Card>
                         )
                     }
-                })}
-            </div>
-        </Layout>
+                })
+            }
+        </div>
     )
 }
 

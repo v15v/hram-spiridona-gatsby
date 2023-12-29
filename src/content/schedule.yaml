@@ -7,6 +7,13 @@ schedules:
       - name: всенощное бдение
         time: 17:00
 
+  - date: 2023-12-29
+    events:
+      - name: заупокойная лития
+        time: 16:50
+      - name: всенощное бдение
+        time: 17:00
+
   - date: 2024-02-06
     events:
       - name: исповедь
