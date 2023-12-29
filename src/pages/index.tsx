@@ -10,25 +10,25 @@ import {Separator} from "@/components/ui/separator";
 const IndexPage: React.FC<PageProps> = () => {
     return (
         <Layout>
-            <div className={"mx-1"}>
+            <div className={"mx-px"}>
                 <EmblaCarousel />
             </div>
 
             <div className={"markdown"}>
-                <div className={"p-5 mx-1 mb-10 flex justify-center"}>
+                <div className={"p-5 mx-px mb-10 flex justify-center"}>
                     <div>
                         <About />
                     </div>
                 </div>
 
                 <Separator />
-                <div className={"md:p-5 md:mx-1 mb-10"}>
+                <div className={"md:p-5 md:mx-px mb-10"}>
                     <h2>Расписание богослужений</h2>
                     <Schedule />
                 </div>
 
                 <Separator />
-                <div className={"p-5 mx-1 mb-10 flex justify-center"}>
+                <div className={"p-5 mx-px mb-10 flex justify-center"}>
                     <div>
                         <Contacts />
                     </div>

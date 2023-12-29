@@ -4,7 +4,6 @@ import * as React from "react"
 import {Link} from "gatsby"
 
 import {cn} from "@/lib/utils"
-// import { Icons } from "@/components/icons"
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -54,7 +53,7 @@ const components: { title: string; href: string; description: string }[] = [
     },
 ]
 
-export function Navigation() {
+export function NavigationDesktop() {
     return (
         <NavigationMenu>
             <NavigationMenuList>
