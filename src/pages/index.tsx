@@ -22,7 +22,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 </div>
 
                 <Separator />
-                <div className={"p-5 mx-1 mb-10"}>
+                <div className={"md:p-5 md:mx-1 mb-10"}>
                     <h2>Расписание богослужений</h2>
                     <Schedule />
                 </div>
