@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import {Link} from "gatsby"
 
@@ -13,7 +11,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import {Church, Sun, SunMoon} from "lucide-react";
+import {Church, SunMoon} from "lucide-react"
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -55,25 +53,20 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationDesktop() {
     const getDarkMode = () => {
-        const isDark = localStorage.getItem("isDark");
-        return isDark
+        if (typeof window !== `undefined`) {
+            const isDark = localStorage.getItem("isDark");
+            return isDark
+        }
+        return "false"
     }
     const [isDark, setIsDark] = React.useState(getDarkMode())
-    const toggleDarkMode = () => {
-        document.querySelector('html').classList.toggle("dark")
-        if (isDark === "true") {
-            localStorage.setItem("isDark", "false");
-            setIsDark("false")
-        } else {
-            localStorage.setItem("isDark", "true");
-            setIsDark("true")
-        }
-    }
     React.useEffect(() => {
         if (isDark === 'true') {
             document.querySelector('html').classList.add("dark")
+            localStorage.setItem("isDark", isDark);
         } else {
             document.querySelector('html').classList.remove("dark")
+            localStorage.setItem("isDark", isDark);
         }
     }, [isDark])
 
@@ -81,7 +74,10 @@ export function NavigationDesktop() {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className={"bg-background"}>
+                    <NavigationMenuTrigger
+                        id="main-menu"
+                        aria-controls="main-menu"
+                        className={"bg-background"}>
                         Основное меню
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -106,12 +102,10 @@ export function NavigationDesktop() {
                                     </Link>
                                 </NavigationMenuLink>
                             </li>
-                            <Link to={"/temp"}>
-                                <ListItem title="Introduction">
-                                    Re-usable components built using Radix UI
-                                    and Tailwind CSS.
-                                </ListItem>
-                            </Link>
+                            <ListItem href="/test" title="Introduction">
+                                Re-usable components built using Radix UI
+                                and Tailwind CSS.
+                            </ListItem>
                             <ListItem href="/schedule"
                                       title="Расписание">
                                 Подробный список ближайших богослужений
@@ -125,6 +119,8 @@ export function NavigationDesktop() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger
+                        id="components-menu"
+                        aria-controls="components-menu"
                         className={"bg-background"}>Components</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -143,10 +139,9 @@ export function NavigationDesktop() {
                 <NavigationMenuItem>
                     <NavigationMenuLink
                         className={navigationMenuTriggerStyle()}
-                        onClick={toggleDarkMode}
+                        onClick={() => setIsDark(isDark === "true" ? "false" : "true")}
                     >
-                        {(isDark === "true") ? <Sun className={"h-4"} /> :
-                            <SunMoon className={"h-4"} />}
+                        <SunMoon className={"h-4"} />
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
