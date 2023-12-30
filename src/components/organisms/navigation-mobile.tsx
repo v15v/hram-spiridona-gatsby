@@ -6,17 +6,37 @@ import {
     Drawer,
     DrawerClose,
     DrawerContent,
-    DrawerDescription,
     DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
     DrawerTrigger,
 } from "@/components/ui/drawer"
 import {Button} from "@/components/ui/button";
-import {Menu} from "lucide-react";
+import {Menu, Sun, SunMoon} from "lucide-react";
 import {Link} from "gatsby";
 
 export function NavigationMobile() {
+    const getDarkMode = () => {
+        const isDark = localStorage.getItem("isDark");
+        return isDark
+    }
+    const [isDark, setIsDark] = React.useState(getDarkMode())
+    const toggleDarkMode = () => {
+        document.querySelector('html').classList.toggle("dark")
+        if (isDark === "true") {
+            localStorage.setItem("isDark", "false");
+            setIsDark("false")
+        } else {
+            localStorage.setItem("isDark", "true");
+            setIsDark("true")
+        }
+    }
+    React.useEffect(() => {
+        if (isDark === 'true') {
+            document.querySelector('html').classList.add("dark")
+        } else {
+            document.querySelector('html').classList.remove("dark")
+        }
+    }, [isDark])
+
     return (
         <Drawer>
             <DrawerTrigger>
@@ -24,6 +44,12 @@ export function NavigationMobile() {
             </DrawerTrigger>
             <DrawerContent>
                 <DrawerFooter>
+                    <Button className={"w-full h-12"}
+                            onClick={toggleDarkMode}>
+                        {(isDark === "true") ?
+                            <div className={"flex"}><Sun className={"h-4"} /> Светлая тема</div> :
+                            <div className={"flex"}><SunMoon className={"h-4"} /> Тёмная тема</div>}
+                    </Button>
                     <Link to={"/"} className={"text-right"}>
                         <Button className={"w-full h-12"}>Главная</Button>
                     </Link>
@@ -34,7 +60,8 @@ export function NavigationMobile() {
                         <Button className={"w-full h-12"}>Test</Button>
                     </Link>
                     <DrawerClose>
-                        <Button variant="outline" className={"w-full h-12"}>Cancel</Button>
+                        <Button variant="outline"
+                                className={"w-full h-12"}>Cancel</Button>
                     </DrawerClose>
                 </DrawerFooter>
             </DrawerContent>

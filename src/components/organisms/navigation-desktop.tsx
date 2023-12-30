@@ -13,7 +13,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import {Church} from "lucide-react";
+import {Church, Sun, SunMoon} from "lucide-react";
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -54,11 +54,34 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function NavigationDesktop() {
+    const getDarkMode = () => {
+        const isDark = localStorage.getItem("isDark");
+        return isDark
+    }
+    const [isDark, setIsDark] = React.useState(getDarkMode())
+    const toggleDarkMode = () => {
+        document.querySelector('html').classList.toggle("dark")
+        if (isDark === "true") {
+            localStorage.setItem("isDark", "false");
+            setIsDark("false")
+        } else {
+            localStorage.setItem("isDark", "true");
+            setIsDark("true")
+        }
+    }
+    React.useEffect(() => {
+        if (isDark === 'true') {
+            document.querySelector('html').classList.add("dark")
+        } else {
+            document.querySelector('html').classList.remove("dark")
+        }
+    }, [isDark])
+
     return (
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={"bg-background"}>
                         Основное меню
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -101,7 +124,8 @@ export function NavigationDesktop() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                    <NavigationMenuTrigger
+                        className={"bg-background"}>Components</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                             {components.map((component) => (
@@ -117,12 +141,13 @@ export function NavigationDesktop() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href="/docs" legacyBehavior passHref>
-                        <NavigationMenuLink
-                            className={navigationMenuTriggerStyle()}>
-                            Documentation
-                        </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                        onClick={toggleDarkMode}
+                    >
+                        {(isDark === "true") ? <Sun className={"h-4"} /> :
+                            <SunMoon className={"h-4"} />}
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

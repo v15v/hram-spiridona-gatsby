@@ -32,7 +32,7 @@ function Schedule() {
                         const month = monthNames[dateObj.getMonth()]
                         const weekday = weekdayNames[dateObj.getDay()]
                         return (
-                            <Card className={"card m-3"}>
+                            <Card key={day.date} className={"card m-3"}>
                                 <CardHeader>
                                     <CardTitle>{targetDay} {month}</CardTitle>
                                     <CardDescription>{weekday}</CardDescription>
@@ -41,11 +41,9 @@ function Schedule() {
                                     {
                                         day.events.map((event) => {
                                             return (
-                                                <div>
-                                                    <p>
-                                                        <strong>{event.time}</strong> {event.name}
-                                                    </p>
-                                                </div>
+                                                <p key={event.time}>
+                                                    <strong>{event.time}</strong> {event.name}
+                                                </p>
                                             )
                                         })
                                     }
