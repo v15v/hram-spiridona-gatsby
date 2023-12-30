@@ -12,35 +12,20 @@ import {
 import {Button} from "@/components/ui/button";
 import {Menu, Sun, SunMoon} from "lucide-react";
 import {Link} from "gatsby";
+import {ThemeContext} from "../../context/theme"
 
 export function NavigationMobile() {
-    const getDarkMode = () => {
-        if (typeof window !== `undefined`) {
-            const isDark = localStorage.getItem("isDark");
-            return isDark
-        }
-        return "false"
-    }
-    const [isDark, setIsDark] = React.useState(getDarkMode())
-    const toggleDarkMode = () => {
-        if (typeof window !== `undefined`) {
-            document.querySelector('html').classList.toggle("dark")
-            if (isDark === "true") {
-                localStorage.setItem("isDark", "false");
-                setIsDark("false")
-            } else {
-                localStorage.setItem("isDark", "true");
-                setIsDark("true")
-            }
-        }
-    }
+    const {theme, toggleTheme, getTheme} = React.useContext(ThemeContext)
     React.useEffect(() => {
-        if (isDark === 'true') {
+        getTheme()
+    }, [])
+    React.useEffect(() => {
+        if (theme === 'dark') {
             document.querySelector('html').classList.add("dark")
         } else {
             document.querySelector('html').classList.remove("dark")
         }
-    }, [isDark])
+    }, [theme])
 
     return (
         <Drawer>
@@ -50,12 +35,8 @@ export function NavigationMobile() {
             <DrawerContent>
                 <DrawerFooter>
                     <Button className={"w-full h-12"}
-                            onClick={toggleDarkMode}>
-                        {(isDark === "true") ?
-                            <div className={"flex"}><Sun
-                                className={"h-4"} /> Светлая тема</div> :
-                            <div className={"flex"}><SunMoon
-                                className={"h-4"} /> Тёмная тема</div>}
+                            onClick={toggleTheme}>
+                        {theme === "dark" ? <Sun /> : <SunMoon />}
                     </Button>
                     <Link to={"/"} className={"text-right"}>
                         <Button className={"w-full h-12"}>Главная</Button>
