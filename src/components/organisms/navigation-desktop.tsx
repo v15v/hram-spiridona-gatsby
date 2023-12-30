@@ -74,11 +74,11 @@ export function NavigationDesktop() {
                                             Главная
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
-                                            Beautifully designed components
-                                            that you can copy and
-                                            paste into your apps. Accessible.
-                                            Customizable. Open
-                                            Source.
+                                            Русская Православная Церковь,
+                                            Московская митрополия,
+                                            Сергиево-Посадская епархия,
+                                            Яхромское благочиние,
+                                            Спиридоньевский храм
                                         </p>
                                     </Link>
                                 </NavigationMenuLink>
