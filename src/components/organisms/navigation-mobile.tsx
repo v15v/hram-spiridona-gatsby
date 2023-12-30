@@ -15,18 +15,23 @@ import {Link} from "gatsby";
 
 export function NavigationMobile() {
     const getDarkMode = () => {
-        const isDark = localStorage.getItem("isDark");
-        return isDark
+        if (typeof window !== `undefined`) {
+            const isDark = localStorage.getItem("isDark");
+            return isDark
+        }
+        return "false"
     }
     const [isDark, setIsDark] = React.useState(getDarkMode())
     const toggleDarkMode = () => {
-        document.querySelector('html').classList.toggle("dark")
-        if (isDark === "true") {
-            localStorage.setItem("isDark", "false");
-            setIsDark("false")
-        } else {
-            localStorage.setItem("isDark", "true");
-            setIsDark("true")
+        if (typeof window !== `undefined`) {
+            document.querySelector('html').classList.toggle("dark")
+            if (isDark === "true") {
+                localStorage.setItem("isDark", "false");
+                setIsDark("false")
+            } else {
+                localStorage.setItem("isDark", "true");
+                setIsDark("true")
+            }
         }
     }
     React.useEffect(() => {
@@ -39,7 +44,7 @@ export function NavigationMobile() {
 
     return (
         <Drawer>
-            <DrawerTrigger>
+            <DrawerTrigger aria-controls="radix-:R15:">
                 <Menu className={"bg-secondary ml-2 mt-2"} />
             </DrawerTrigger>
             <DrawerContent>
@@ -47,8 +52,10 @@ export function NavigationMobile() {
                     <Button className={"w-full h-12"}
                             onClick={toggleDarkMode}>
                         {(isDark === "true") ?
-                            <div className={"flex"}><Sun className={"h-4"} /> Светлая тема</div> :
-                            <div className={"flex"}><SunMoon className={"h-4"} /> Тёмная тема</div>}
+                            <div className={"flex"}><Sun
+                                className={"h-4"} /> Светлая тема</div> :
+                            <div className={"flex"}><SunMoon
+                                className={"h-4"} /> Тёмная тема</div>}
                     </Button>
                     <Link to={"/"} className={"text-right"}>
                         <Button className={"w-full h-12"}>Главная</Button>
@@ -59,7 +66,7 @@ export function NavigationMobile() {
                     <Link to={"/test"} className={"text-right"}>
                         <Button className={"w-full h-12"}>Test</Button>
                     </Link>
-                    <DrawerClose>
+                    <DrawerClose asChild>
                         <Button variant="outline"
                                 className={"w-full h-12"}>Cancel</Button>
                     </DrawerClose>
