@@ -12,7 +12,7 @@ const EmblaCarousel = () => {
         duration: 50
     }, [Autoplay(
         {
-            delay: 3000,
+            delay: 5000,
             stopOnMouseEnter: true,
             stopOnInteraction: false
         }
