@@ -9,6 +9,7 @@ import {
     CardHeader,
     CardTitle
 } from "@/components/ui/card"
+import Seo from "@/components/seo"
 
 function Schedule() {
     const days = Schedules.schedules
@@ -63,3 +64,5 @@ function Schedule() {
 }
 
 export default Schedule;
+
+export const Head = () => <Seo title="Расписание" />

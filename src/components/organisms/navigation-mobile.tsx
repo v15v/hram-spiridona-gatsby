@@ -49,7 +49,7 @@ export function NavigationMobile() {
                     </Link>
                     <DrawerClose asChild>
                         <Button variant="outline"
-                                className={"w-full h-12"}>Cancel</Button>
+                                className={"w-full h-12"}>Закрыть</Button>
                     </DrawerClose>
                 </DrawerFooter>
             </DrawerContent>

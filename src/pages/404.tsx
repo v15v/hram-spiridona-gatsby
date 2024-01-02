@@ -1,6 +1,7 @@
 import * as React from "react"
 import {HeadFC, Link, PageProps} from "gatsby"
 import Layout from "@/components/templates/layout";
+import Seo from "@/components/seo"
 
 const codeStyles = {
     color: "#8A6534",
@@ -42,4 +43,4 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage
 
-export const Head: HeadFC = () => <title>Not found</title>
+export const Head = () => <Seo title="404" />

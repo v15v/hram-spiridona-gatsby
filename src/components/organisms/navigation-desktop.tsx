@@ -108,8 +108,9 @@ export function NavigationDesktop() {
                     <NavigationMenuLink asChild
                                         onClick={toggleTheme}
                                         className={navigationMenuTriggerStyle()}>
-                        {theme === "dark" ? <Sun className={"h-8"} /> :
-                            <SunMoon className={"h-8"} />}
+                        {theme === "dark" ? (
+                                <button><Sun className={"h-8"} /></button>) :
+                            (<button><SunMoon className={"h-8"} /></button>)}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
