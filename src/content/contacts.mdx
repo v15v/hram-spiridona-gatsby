@@ -4,6 +4,12 @@ category: contacts
 url: "contacts"
 ---
 
+
+
+
+
+import {Map, Placemark, YMaps} from '@pbe/react-yandex-maps'
+
 ## Контакты
 
 ### Ардес:
@@ -14,3 +20,17 @@ url: "contacts"
 
 ### Email:
 hram.spiridona.katuar@mail.ru
+
+<YMaps>
+    <div>
+        <Map defaultState={{
+            center: [56.090269, 37.499159],
+            zoom: 9,
+            controls: ["zoomControl"],
+        }}
+             modules={["control.ZoomControl"]}
+             width={"100%"} height={350}>
+            <Placemark geometry={[56.090269, 37.499159]} />
+        </Map>
+    </div>
+</YMaps>
