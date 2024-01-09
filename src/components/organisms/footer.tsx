@@ -8,7 +8,7 @@ const Footer = () => {
             className={"mx-1 sm:h-32 p-4 sm:pt-6 md:pt-4 sm:pb-0 bg-background sm:grid sm:grid-cols-12 sm:grid-rows-2"}>
             <div
                 className={"sm:col-start-2 sm:col-end-9 sm:justify-self-start sm:self-center p-1 flex"}>
-                <div className={"w-11 flex self-center"}>
+                <div className={"flex self-center"}>
                     <MapPin size={"30px"}
                             className={`sm:self-center opacity-55`} />
                     <Separator orientation="vertical"
@@ -16,14 +16,14 @@ const Footer = () => {
                 </div>
                 <div className={`self-center opacity-55`}>
                     <p className={"text-xs"}>АДРЕС</p>
-                    <p className={"text-sm"}>Московская область, Дмитровский
+                    <p className={"text-xs"}>Московская область, Дмитровский
                         городской округ, рабочий посёлок Некрасовский</p>
                 </div>
             </div>
 
             <div
                 className={"sm:col-start-9 sm:col-end-12 sm:justify-self-end sm:self-center p-1 flex"}>
-                <div className={"w-11 flex self-center"}>
+                <div className={"flex self-center"}>
                     <Clock3 size={"30px"}
                             className={`sm:self-center opacity-55`} />
                     <Separator orientation="vertical"
