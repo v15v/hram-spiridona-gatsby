@@ -44,8 +44,8 @@ export function NavigationMobile() {
                     <Link to={"/schedule"} className={"text-right"}>
                         <Button className={"w-full h-12"}>Расписание</Button>
                     </Link>
-                    <Link to={"/test"} className={"text-right"}>
-                        <Button className={"w-full h-12"}>Test</Button>
+                    <Link to={"/help-us"} className={"text-right"}>
+                        <Button className={"w-full h-12"}>Помощь храму</Button>
                     </Link>
                     <DrawerClose asChild>
                         <Button variant="outline"

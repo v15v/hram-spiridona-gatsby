@@ -1,4 +1,4 @@
-body{
+body {
   @apply bg-background;
 }
 
@@ -32,12 +32,13 @@ h3 {
   li {
     margin: .5em 0;
     padding-left: .3em;
-    line-height: 1.6em
+    line-height: 1.6em;
   }
 
   ol, ul {
     padding-left: 1.3em;
-    padding-right: 1.5em
+    padding-right: 1.5em;
+    list-style: disc;
   }
 
   blockquote, dl, ol, p, ul {
@@ -48,6 +49,16 @@ h3 {
     p {
       padding: 0;
       margin: 0;
+    }
+  }
+
+  .table {
+    td {
+      padding: 0.5em;
+    }
+
+    p {
+      margin: 0.5em;
     }
   }
 }

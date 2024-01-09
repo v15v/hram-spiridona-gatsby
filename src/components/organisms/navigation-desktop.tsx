@@ -75,14 +75,14 @@ export function NavigationDesktop() {
                             </li>
                             <li>
                                 <NavigationMenuLink asChild>
-                                    <Link to={"/test"}
+                                    <Link to={"/help-us"}
                                           className={"block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}
                                     >
                                         <div
-                                            className="text-sm font-medium leading-none">Test
+                                            className="text-sm font-medium leading-none">Помощь храму
                                         </div>
                                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                            Проверка несуществующей страницы
+                                            Храм нуждается в вашей помощи
                                         </p>
                                     </Link>
                                 </NavigationMenuLink>
